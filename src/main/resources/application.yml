@@ -1,0 +1,39 @@
+
+logging:
+  level:
+    org: 
+      springframework:
+         security: debug
+         web: debug
+ 
+security:
+  oauth2:
+    client:
+      accessTokenUri: https://localhost:9443/oauth2/token
+      userAuthorizationUri: https://localhost:9443/oauth2/authorize
+      clientId: rD5esrhvEBf2zZMx0JehKRSovYwa
+      clientSecret: oM4Mf851MgBlVmONZhRrF23t6W4a
+      scope: openid
+      clientAuthenticationScheme: header
+      preEstablishedRedirectUri: https://localhost:9050/login
+      useCurrentUri: false
+    resource:
+      userInfoUri: https://localhost:9443/oauth2/userinfo?schema=openid
+
+
+
+server:
+  ssl:
+    key-store: classpath:wso2carbon.jks
+    key-password: wso2carbon
+    key-alias: wso2carbon
+    key-store-type: JKS
+    key-store-password: wso2carbon
+    trust-store: classpath:client-truststore.jks
+    trust-store-password: wso2carbon
+  port: 9050
+spring:
+  resources:
+    chain:
+      enabled: true
+      

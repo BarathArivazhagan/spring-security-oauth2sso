@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head> 
+     
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <title>Template Spring Boot OAuth2 WSO2 IS</title>
+    
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+    
+</head>
+<body>
+   
+    <div class="container">
+
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Template App</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+            </ul>
+            <ul class="nav navbar-right">
+                <li sec:authorize="isAnonymous()"><a th:href="@{/login}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{${wso2SessionTerminateUrl}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+        </div>
+       </nav>
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Spring Boot Template App</h1>
+        <p>This template application contains all you need to integrate Spring Boot with WSO2 Identity Server 5.1.0 with basic Login and Logout actions.</p>
+        <p>
+            Logged in user: <span sec:authentication="name">Bob</span>
+       </p>
+        <p>
+            <span sec:authorize="isAnonymous()">If this renders then the user is not authorized and so is deemed to be anonymous</span>
+        </p>
+        <p sec:authorize="hasRole('ROLE_USER')">
+            This content is only shown to users with role ROLE_USER.
+        </p>
+        <p sec:authorize="hasRole('ROLE_ADMIN')">
+            This content is only shown to administrators with ROLE_ADMIN.
+        </p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="https://github.com/nicodewet/template-spring-boot-oauth2-wso2-is" role="button">View template project docs &raquo;</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/1.11.1/jquery.min.js"
+            th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+    <script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+            th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+    <script th:inline="javascript">
+    /*<![CDATA[*/
+    $(document).ready(function() {
+
+    });
+    /*]]>*/
+    </script>
+</body>
+</html>
