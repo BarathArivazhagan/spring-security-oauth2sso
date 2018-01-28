@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.lang.invoke.MethodHandles;
+
 @Controller
 public class AppController {
 	
-	Logger logger = LoggerFactory.getLogger(getClass());
+	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 	
 	
     @RequestMapping("/home1")
@@ -31,7 +33,7 @@ public class AppController {
     @ResponseBody
     public final String home() {
         final String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        logger.info(username);
+        logger.info("User name {} ",username);
         return "Welcome, " + username;
     }
   
