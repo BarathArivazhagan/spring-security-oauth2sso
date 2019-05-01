@@ -1,10 +1,4 @@
 
-logging:
-  level:
-    org: 
-      springframework:
-         security: debug
-         web: debug
  
 security:
   oauth2:
@@ -31,7 +25,7 @@ server:
     key-store-password: wso2carbon
     trust-store: classpath:client-truststore.jks
     trust-store-password: wso2carbon
-  port: 9050
+
 spring:
   resources:
     chain:

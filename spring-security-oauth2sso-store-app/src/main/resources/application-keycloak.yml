@@ -1,0 +1,17 @@
+
+
+security:
+  oauth2:
+    client:
+      accessTokenUri: http://localhost:9000/auth/realms/demo/protocol/openid-connect/token
+      userAuthorizationUri: http://localhost:9000/auth/realms/demo/protocol/openid-connect/auth
+      clientId: store-app
+      clientSecret:
+      scope: openid
+      clientAuthenticationScheme: header
+      preEstablishedRedirectUri: http://localhost:9501/login
+      useCurrentUri: false
+    resource:
+      userInfoUri: http://localhost:9000/auth/realms/demo/protocol/openid-connect/userinfo
+
+      
